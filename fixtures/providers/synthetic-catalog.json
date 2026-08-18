@@ -1,0 +1,25 @@
+{
+  "catalog_schema": "synthetic_provider_catalog_v1",
+  "notice": "Fully synthetic generic records; not representative of any real organization.",
+  "mock_ticket_provider": [
+    {"record_id": "TKT-CAT-PASSWORD", "schema_version": "ticket_schema_v1", "data": {"record_type": "ticket", "created": "2026-01-15T09:30:00Z", "requester": "jsmith", "target_host": "WEB-PRD-01", "request_type": "password_reset", "status": "approved"}},
+    {"record_id": "TKT-CAT-UNLOCK", "schema_version": "ticket_schema_v2", "data": {"kind": "ticket", "opened_at": "2026-01-15T09:35:00+00:00", "requested_for": "asmith", "configuration_item": "APP-DEV-01", "operation": "account_unlock", "workflow_state": "pending"}},
+    {"record_id": "TKT-CAT-MFA", "schema_version": "ticket_schema_v1", "data": {"record_type": "ticket", "created": "2026-01-15T09:40:00Z", "requester": "jsmith", "target_host": "WEB-PRD-01", "request_type": "mfa_reset", "status": "rejected"}},
+    {"record_id": "TKT-CAT-SIMILAR", "schema_version": "ticket_schema_v1", "data": {"record_type": "ticket", "created": "2026-01-15T09:45:00Z", "requester": "john.smith2", "target_host": "WEB-PRD-01", "request_type": "password_reset", "status": "approved", "description": "Similar text is not identity evidence"}}
+  ],
+  "mock_change_provider": [
+    {"record_id": "CHG-CAT-ADMIN", "schema_version": "change_schema_v1", "data": {"record_type": "change", "scheduled_at": "2026-01-15T09:49:00Z", "actor": "jsmith", "asset": "WEB-PRD-01", "change_type": "administrative_password_change", "approval_state": "approved"}},
+    {"record_id": "CHG-CAT-RESTART", "schema_version": "change_schema_v1", "data": {"record_type": "change", "scheduled_at": "2026-01-15T10:10:00Z", "actor": "asmith", "asset": "APP-DEV-01", "change_type": "service_restart", "approval_state": "cancelled"}},
+    {"record_id": "CHG-CAT-CONFIG", "schema_version": "change_schema_v1", "data": {"record_type": "change", "scheduled_at": "2026-01-15T10:20:00Z", "actor": "jsmith", "asset": "WEB-PRD-01", "change_type": "server_configuration_change", "approval_state": "pending"}}
+  ],
+  "mock_historical_case_provider": [
+    {"record_id": "CASE-CAT-BENIGN", "schema_version": "case_schema_v1", "data": {"record_type": "historical_case", "closed_at": "2025-12-01T09:00:00Z", "subject_user": "jsmith", "subject_host": "WEB-PRD-01", "activity": "password_reset", "case_state": "completed"}}
+  ],
+  "mock_identity_provider": [
+    {"record_id": "ID-CAT-SUPPORT", "schema_version": "identity_schema_v1", "data": {"record_type": "identity_activity", "event_time": "2026-01-15T09:55:00Z", "account": "john.smith", "device": "web-prd-01.example.local", "operation": "identity_password_change", "result": "completed"}},
+    {"record_id": "ID-CAT-CONTRADICT", "schema_version": "identity_schema_v1", "data": {"record_type": "identity_activity", "event_time": "2026-01-15T09:56:00Z", "account": "jsmith", "device": "WEB-PRD-01", "operation": "identity_password_change_denied", "result": "completed"}}
+  ],
+  "mock_asset_provider": [
+    {"record_id": "ASSET-CAT-OWNER", "schema_version": "asset_schema_v1", "data": {"record_type": "asset_context", "updated_at": "2026-01-15T09:00:00Z", "owner": "asmith", "hostname": "WEB-PRD-01", "context_action": "asset_ownership", "lifecycle_state": "active"}}
+  ]
+}

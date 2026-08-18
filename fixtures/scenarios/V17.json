@@ -1,0 +1,11 @@
+{
+  "scenario_id": "V17",
+  "name": "Malformed provider record",
+  "alert": {"alert_id": "alert-v17", "schema_version": "alert_schema_v1", "payload": {"observed_at": "2026-01-15T10:00:00Z", "user": "jsmith", "host": "WEB-PRD-01", "action": "privileged_password_change"}},
+  "provider_records": {
+    "mock_ticket_provider": [{"record_id": "TKT-V17-BAD", "schema_version": "ticket_schema_v99", "data": {"record_type": "ticket", "created": "bad", "requester": "jsmith", "request_type": "password_reset"}}],
+    "mock_change_provider": [{"record_id": "CHG-V17-GOOD", "schema_version": "change_schema_v1", "data": {"record_type": "change", "scheduled_at": "2026-01-15T09:49:00Z", "actor": "jsmith", "asset": "WEB-PRD-01", "change_type": "administrative_password_change", "approval_state": "approved"}}]
+  },
+  "expectation": {"execution_status": "RELATED_CONTEXT_FOUND", "confidence": "HIGH", "related_record_ids": ["CHG-V17-GOOD"], "candidate_record_ids": ["CHG-V17-GOOD"], "forbidden_related_record_ids": ["TKT-V17-BAD"], "diagnostic_codes": ["SCHEMA_INCOMPATIBILITY"]},
+  "metric_labels": ["schema_drift", "failure_injection"]
+}

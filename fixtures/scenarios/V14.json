@@ -1,0 +1,8 @@
+{
+  "scenario_id": "V14",
+  "name": "Historical SOC case",
+  "alert": {"alert_id": "alert-v14", "schema_version": "alert_schema_v1", "payload": {"observed_at": "2026-01-15T10:00:00Z", "user": "jsmith", "host": "WEB-PRD-01", "action": "privileged_password_change"}},
+  "provider_records": {"mock_historical_case_provider": [{"record_id": "CASE-V14-HISTORY", "schema_version": "case_schema_v1", "data": {"record_type": "historical_case", "closed_at": "2026-01-15T09:50:00Z", "subject_user": "jsmith", "subject_host": "WEB-PRD-01", "activity": "password_reset", "case_state": "completed"}}]},
+  "expectation": {"execution_status": "RELATED_CONTEXT_FOUND", "confidence": "MEDIUM", "related_record_ids": ["CASE-V14-HISTORY"], "candidate_record_ids": ["CASE-V14-HISTORY"]},
+  "metric_labels": ["evidence"]
+}

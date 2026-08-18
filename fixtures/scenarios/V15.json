@@ -1,0 +1,8 @@
+{
+  "scenario_id": "V15",
+  "name": "No related context",
+  "alert": {"alert_id": "alert-v15", "schema_version": "alert_schema_v1", "payload": {"observed_at": "2026-01-15T10:00:00Z", "user": "jsmith", "host": "WEB-PRD-01", "action": "privileged_password_change"}},
+  "provider_records": {},
+  "expectation": {"execution_status": "NO_RELIABLE_CONTEXT_FOUND", "confidence": "INSUFFICIENT_CONTEXT", "candidate_record_ids": []},
+  "metric_labels": ["adversarial", "provider_empty_success"]
+}

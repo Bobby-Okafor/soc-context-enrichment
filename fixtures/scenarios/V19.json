@@ -1,0 +1,11 @@
+{
+  "scenario_id": "V19",
+  "name": "Identity event contradicts ticket",
+  "alert": {"alert_id": "alert-v19", "schema_version": "alert_schema_v1", "payload": {"observed_at": "2026-01-15T10:00:00Z", "user": "jsmith", "host": "WEB-PRD-01", "action": "privileged_password_change"}},
+  "provider_records": {
+    "mock_ticket_provider": [{"record_id": "TKT-V19-SUPPORT", "schema_version": "ticket_schema_v1", "data": {"record_type": "ticket", "created": "2026-01-15T09:50:00Z", "requester": "jsmith", "target_host": "WEB-PRD-01", "request_type": "password_reset", "status": "approved"}}],
+    "mock_identity_provider": [{"record_id": "ID-V19-CONFLICT", "schema_version": "identity_schema_v1", "data": {"record_type": "identity_activity", "event_time": "2026-01-15T09:55:00Z", "account": "jsmith", "device": "WEB-PRD-01", "operation": "identity_password_change_denied", "result": "completed"}}]
+  },
+  "expectation": {"execution_status": "CONTRADICTORY_CONTEXT", "confidence": "LOW", "related_record_ids": ["TKT-V19-SUPPORT"], "candidate_record_ids": ["ID-V19-CONFLICT", "TKT-V19-SUPPORT"], "forbidden_related_record_ids": ["ID-V19-CONFLICT"], "minimum_contradictions": 1},
+  "metric_labels": ["contradiction", "evidence"]
+}

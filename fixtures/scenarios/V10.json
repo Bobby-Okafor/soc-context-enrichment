@@ -1,0 +1,8 @@
+{
+  "scenario_id": "V10",
+  "name": "Contradictory activity",
+  "alert": {"alert_id": "alert-v10", "schema_version": "alert_schema_v1", "payload": {"observed_at": "2026-01-15T10:00:00Z", "user": "jsmith", "host": "WEB-PRD-01", "action": "privileged_password_change"}},
+  "provider_records": {"mock_identity_provider": [{"record_id": "ID-V10-CONTRADICT", "schema_version": "identity_schema_v1", "data": {"record_type": "identity_activity", "event_time": "2026-01-15T09:55:00Z", "account": "jsmith", "device": "WEB-PRD-01", "operation": "identity_password_change_denied", "result": "completed"}}]},
+  "expectation": {"execution_status": "CONTRADICTORY_CONTEXT", "confidence": "LOW", "candidate_record_ids": ["ID-V10-CONTRADICT"], "forbidden_related_record_ids": ["ID-V10-CONTRADICT"], "minimum_contradictions": 1},
+  "metric_labels": ["contradiction", "adversarial"]
+}

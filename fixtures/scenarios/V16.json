@@ -1,0 +1,9 @@
+{
+  "scenario_id": "V16",
+  "name": "Provider unavailable",
+  "alert": {"alert_id": "alert-v16", "schema_version": "alert_schema_v1", "payload": {"observed_at": "2026-01-15T10:00:00Z", "user": "jsmith", "host": "WEB-PRD-01", "action": "privileged_password_change"}},
+  "provider_records": {"mock_ticket_provider": [{"record_id": "TKT-V16-SUPPORT", "schema_version": "ticket_schema_v1", "data": {"record_type": "ticket", "created": "2026-01-15T09:50:00Z", "requester": "jsmith", "target_host": "WEB-PRD-01", "request_type": "password_reset", "status": "approved"}}]},
+  "provider_status": {"mock_change_provider": "FAILED"},
+  "expectation": {"execution_status": "PARTIAL_ENRICHMENT", "confidence": "MEDIUM", "related_record_ids": ["TKT-V16-SUPPORT"], "candidate_record_ids": ["TKT-V16-SUPPORT"], "diagnostic_codes": ["PROVIDER_UNAVAILABLE"]},
+  "metric_labels": ["provider_failure", "failure_injection"]
+}

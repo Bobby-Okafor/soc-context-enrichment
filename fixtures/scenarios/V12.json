@@ -1,0 +1,8 @@
+{
+  "scenario_id": "V12",
+  "name": "Malformed timezone",
+  "alert": {"alert_id": "alert-v12", "schema_version": "alert_schema_v1", "payload": {"observed_at": "2026-01-15T10:00:00Z", "user": "jsmith", "host": "WEB-PRD-01", "action": "privileged_password_change"}},
+  "provider_records": {"mock_ticket_provider": [{"record_id": "TKT-V12-TZ", "schema_version": "ticket_schema_v1", "data": {"record_type": "ticket", "created": "2026-01-15 09:50:00", "requester": "jsmith", "target_host": "WEB-PRD-01", "request_type": "password_reset", "status": "approved"}}]},
+  "expectation": {"execution_status": "RELATED_CONTEXT_FOUND", "confidence": "MEDIUM", "related_record_ids": ["TKT-V12-TZ"], "candidate_record_ids": ["TKT-V12-TZ"], "diagnostic_codes": ["CONTEXT_TIMESTAMP_AMBIGUOUS_TIMEZONE"]},
+  "metric_labels": ["timestamp", "failure_injection"]
+}
